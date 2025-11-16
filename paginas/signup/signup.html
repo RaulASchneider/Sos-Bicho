@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Criar Conta</h1>
+
+        <form id="form">
+            <input id="username" placeholder="Usuário" required minlength="3"><br>
+            <input id="email" type="email" placeholder="Email" required><br>
+            <input id="password" type="password" placeholder="Senha" required minlength="6"><br>
+            <button>Cadastrar</button>
+        </form>
+
+        <p id="msg"></p>
+
+        <a href="/paginas/login/login.html">Já tem conta?</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/JavaScript/supabase.js"></script>
+
+    <script>
+        const form = document.getElementById("form");
+        const msg = document.getElementById("msg");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const username = document.getElementById("username").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value;
+
+            msg.textContent = "Criando conta...";
+
+            try {
+                const { data, error } = await db.auth.signUp({
+                    email,
+                    password,
+                    options: {
+                        data: { username: username }
+                    }
+                });
+
+                if (error) {
+                    msg.textContent = "Erro: " + error.message;
+                    return;
+                }
+
+                console.log('Usuário criado:', data.user);
+                const { error: profileError } = await db
+                    .from("profiles")
+                    .insert({
+                        id: data.user.id,
+                        username: username,
+                        verified: false
+                    });
+
+                if (profileError) {
+                    console.error('Erro ao criar perfil:', profileError);
+                    msg.textContent = "Conta criada no sistema, mas erro no perfil. Faça login manualmente.";
+                } else {
+                    msg.textContent = "Conta criada com sucesso! Verifique seu email e faça login.";
+                }
+
+            } catch (err) {
+                console.error('Erro geral:', err);
+                msg.textContent = "Erro inesperado: " + err.message;
+            }
+        });
+    </script>
+</body>
+
+</html>

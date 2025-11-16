@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+
+<body>
+    <header>
+        <a href="/paginas/zmenu/menu.html"><img src="/imagens/menu_icon.png" alt="Erro"></a>
+        <h1>SOS BICHO</h1>
+    </header>
+    <main>
+        <section class="perfil">
+            <h1>Seu Perfil</h1>
+
+        <p id="info"></p>
+        <p id="emailInfo"></p>
+
+        <form id="editForm">
+            <input id="username" placeholder="Alterar Username"><br>
+            <button>Salvar</button>
+            <a href="/paginas/login/login.html" id="trocarConta">Trocar de conta</a>
+        </form>
+
+
+        <p id="msg"></p>
+        </section>
+    </main>
+    <footer>
+        <p>© Todos os direitos reservados à SOS-Bicho</p>
+        <a href="/paginas/referencias/referencias.html">Referências</a>
+        <a href="/paginas/zmainpage/mainpage.html">O projeto</a>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/JavaScript/supabase.js"></script>
+
+
+    <script>
+        async function loadProfile() {
+            const { data: u } = await db.auth.getUser();
+            if (!u.user) window.location.href = "/paginas/login/login.html";
+            const { data } = await db.from("profiles").select("*").eq("id", u.user.id).single();
+            document.getElementById("info").textContent = "Usuário: " + data.username;
+        }
+        async function carregarEmail() {
+            const info = document.getElementById("email");
+            const { data, error } = await supabase.auth.getUser();
+            info.textContent = "Email: " + data.user.email;
+        }
+        async function loadEmail() {
+            const { data: u } = await db.auth.getUser();
+            if (!u.user) {
+                window.location.href = "/paginas/login/login.html";
+                return;
+            }
+            const email = u.user.email;
+
+            document.getElementById("emailInfo").textContent = "Email: " + email;
+        }
+
+
+
+        document.getElementById("editForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const { data: u } = await db.auth.getUser();
+            const newName = document.getElementById("username").value;
+
+
+            await db.from("profiles").update({ username: newName }).eq("id", u.user.id);
+            document.getElementById("msg").textContent = "Atualizado!";
+            loadProfile();
+        });
+
+
+        loadProfile();
+        loadEmail();
+    </script>
+</body>
+
+</html>

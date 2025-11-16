@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: justify;
+  max-width: 100%;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+  height: 12vh;
+  background-color: #317B00;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 3% 0 3%;
+}
+header img {
+  margin: 0 0 0 0;
+  max-width: 30vw;
+  max-height: 17vh;
+  min-width: none;
+}
+header h1 {
+  font-size: clamp(20px, 5vw, 15vh);
+  color: white;
+}
+
+main {
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: large;
+  margin-bottom: 2vh;
+  margin: 5% 5% 5% 5%;
+}
+main section {
+  margin: 5% 5% 5% 5%;
+}
+main #desmatamento {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+}
+main #desmatamento #texto {
+  width: 50%;
+  height: 100%;
+}
+main #desmatamento iframe {
+  margin-top: 10%;
+  width: 90vh;
+  height: 75%;
+}
+main #onca {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  align-items: center;
+}
+main #onca #texto {
+  width: 50%;
+  height: 100%;
+}
+main #onca img {
+  width: 50%;
+  height: 100%;
+}
+main #cervo {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  align-items: center;
+}
+main #cervo #texto {
+  width: 50%;
+  height: 100%;
+}
+main #cervo img {
+  width: 50%;
+  height: 100%;
+}
+main #arara {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  align-items: center;
+}
+main #arara #texto {
+  width: 50%;
+  height: 100%;
+}
+main #arara img {
+  width: 50%;
+  height: 100%;
+}
+main #tatu {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  align-items: center;
+}
+main #tatu #texto {
+  width: 50%;
+  height: 100%;
+}
+main #tatu img {
+  width: 50%;
+  height: 100%;
+}
+main #tamandua {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+  align-items: center;
+}
+main #tamandua #texto {
+  width: 50%;
+  height: 100%;
+}
+main #tamandua img {
+  width: 50%;
+  height: 100%;
+}
+
+footer {
+  width: 100%;
+  height: clamp(60px, 12vh, 700px);
+  background-color: #317B00;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: clamp(12px, 1vw, 100px);
+  flex-shrink: 0;
+}
+footer a {
+  color: white;
+}/*# sourceMappingURL=pgconteudo.css.map */

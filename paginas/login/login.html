@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form id="form-login">
+            <input id="email" type="email" placeholder="Email"><br>
+            <input id="password" type="password" placeholder="Senha"><br>
+            <button>Entrar</button>
+        </form>
+        <p id="msg"></p>
+        <a href="/paginas/signup/signup.html">Não tem uma conta? Crie uma!</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/JavaScript/supabase.js"></script>
+
+
+    <script>
+        const msgL = document.getElementById("msg");
+
+
+        document.getElementById("form-login").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+
+            msgL.textContent = "Entrando...";
+
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+
+            const { error } = await db.auth.signInWithPassword({ email, password });
+
+
+            if (error) {
+                msgL.textContent = "Erro: " + error.message;
+                return;
+            }
+
+
+            window.location.href = "/paginas/chat/chat.html";
+        });
+    </script>
+</body>
+
+</html>
