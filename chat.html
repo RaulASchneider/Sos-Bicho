@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <a href="/paginas/zmenu/menu.html"><img src="/imagens/menu_icon.png" alt="Erro"></a>
+        <a href="menu.html"><img src="imagens/menu_icon.png" alt="Erro"></a>
         <h1>SOS BICHO</h1>
     </header>
     <main>
@@ -25,11 +25,11 @@
     </main>
     <footer>
         <p>© Todos os direitos reservados à SOS-Bicho</p>
-        <a href="/paginas/referencias/referencias.html">Referências</a>
-        <a href="/paginas/zmainpage/mainpage.html">O projeto</a>
+        <a href="referencias.html">Referências</a>
+        <a href="index.html">O projeto</a>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="/JavaScript/supabase.js"></script>
+    <script src="JavaScript/supabase.js"></script>
 
     <script>
         let currentUser = null;
@@ -49,7 +49,7 @@
                 const { data, error } = await db.auth.getUser();
                 if (error || !data.user) {
                     showStatus('Usuário não autenticado. Redirecionando...', 'offline');
-                    setTimeout(() => window.location.href = "/paginas/login/login.html", 2000);
+                    setTimeout(() => window.location.href = "login.html", 2000);
                     return null;
                 }
                 currentUser = data.user;
@@ -306,7 +306,7 @@
         });
         async function loadProfile() {
             const { data: u } = await db.auth.getUser();
-            if (!u.user) window.location.href = "/paginas/login/login.html";
+            if (!u.user) window.location.href = "login.html";
 
 
             const { data } = await db.from("profiles").select("*").eq("id", u.user.id).single();
@@ -317,7 +317,7 @@
         async function loadEmail() {
             const { data: u } = await db.auth.getUser();
             if (!u.user) {
-                window.location.href = "/paginas/login/login.html";
+                window.location.href = "login.html";
                 return;
             }
             const email = u.user.email;
