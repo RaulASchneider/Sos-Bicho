@@ -45,11 +45,6 @@
             const { data } = await db.from("profiles").select("*").eq("id", u.user.id).single();
             document.getElementById("info").textContent = "Usuário: " + data.username;
         }
-        async function carregarEmail() {
-            const info = document.getElementById("email");
-            const { data, error } = await supabase.auth.getUser();
-            info.textContent = "Email: " + data.user.email;
-        }
         async function loadEmail() {
             const { data: u } = await db.auth.getUser();
             if (!u.user) {
