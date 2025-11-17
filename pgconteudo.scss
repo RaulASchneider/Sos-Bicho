@@ -26,10 +26,8 @@ header{
     align-items: center;
     padding: 0 3% 0 3%;
     img{
-        margin: 0 0 0 0;
-        max-width: 30vw;
-        max-height: 17vh;
-        min-width: none;
+        max-width: min(30vw, 200px);
+        min-width: 100px;
     }
     h1{
         font-size: clamp(20px, 5vw, 15vh);
@@ -41,100 +39,52 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: large;
+    font-size: clamp(14px, 2vw, 18px);
     margin-bottom: 2vh;
     margin: 5% 5% 5% 5%;    
     section{
-    margin: 5% 5% 5% 5%; 
+        margin: 5% 0 5% 0;
+        width: 100%;
     }
+    
+    #desmatamento, #onca, #cervo, #arara, #tatu, #tamandua {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: clamp(2%, 5%, 8%);
+        align-items: center;
+        justify-content: center;
+        
+        #texto{
+            width: min(600px, 90%);
+            flex: 1 1 300px;
+            min-width: 250px;
+            height: auto;
+        }
+        
+        iframe, img {
+            width: min(500px, 90%);
+            flex: 1 1 300px;
+            min-width: 250px;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+        }
+    }
+    
     #desmatamento{
-        display: flex;
-        flex-direction: row;
-        gap: 5%;
-        // border: solid green 5px;
-        #texto{
-            width: 50%;
-            height: 100%;
-        }
         iframe{
-            margin-top: 10%;
-            width: 90vh;
-            height: 75%;
+            margin-top: 0;
+            height: min(400px, 50vh);
         }
     }
-    #onca{
-        display: flex;
-        flex-direction: row;
-        gap: 5%;
-        align-items: center;
-        #texto{
-            width: 50%;
-            height: 100%;
-        }
+    
+    #onca, #cervo, #arara, #tatu, #tamandua {
         img{
-            width: 50%;
-            height: 100%;
+            height: min(350px, 45vh);
         }
     }
-    #cervo{
-        display: flex;
-        flex-direction: row;
-        gap: 5%;
-        align-items: center;
-        #texto{
-            width: 50%;
-            height: 100%;
-        }
-        img{
-            width: 50%;
-            height: 100%;
-        }
-    }
-    #arara{
-        display: flex;
-        flex-direction: row;
-        gap: 5%;
-        align-items: center;
-        #texto{
-            width: 50%;
-            height: 100%;
-        }
-        img{
-            width: 50%;
-            height: 100%;
-        }
-    }
-    #tatu{
-        display: flex;
-        flex-direction: row;
-        gap: 5%;
-        align-items: center;
-        #texto{
-            width: 50%;
-            height: 100%;
-        }
-        img{
-            width: 50%;
-            height: 100%;
-        }
-    }
-     #tamandua{
-        display: flex;
-        flex-direction: row;
-        gap: 5%;
-        align-items: center;
-        #texto{
-            width: 50%;
-            height: 100%;
-        }
-        img{
-            width: 50%;
-            height: 100%;
-        }
-    }
-
 }
-
 
 footer{
     width: 100%;
@@ -143,10 +93,13 @@ footer{
     color: white;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     font-size: clamp(12px, 1vw, 100px);
     flex-shrink: 0;
+    gap: 20px;
+    padding: 20px;
     a{
         color: white;
     }

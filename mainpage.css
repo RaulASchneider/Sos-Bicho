@@ -60,38 +60,14 @@ main #sobrenos {
   border: 1vh solid #317B00;
   border-radius: 3%;
 }
-main #sobrenos #texto {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2vh;
-  margin: 5% 5% 5% 5%;
-}
 main #sobrenos figure {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  margin: 5% 5% 5% 5%;
-  gap: 5vh;
+  flex-wrap: wrap;
 }
-main #sobrenos figure img {
-  height: 44vh;
-  width: 44vh;
-  border: solid 1vh #317B00;
-  border-radius: 50%;
-  overflow: hidden;
-}
-main #sobrenos figure #marcelo {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  font-size: medium;
-}
-main #sobrenos figure #rau {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  font-size: medium;
+main #sobrenos img {
+  height: 20rem;
+  width: 20rem;
+  border-radius: 100%;
 }
 
 footer {

@@ -56,38 +56,14 @@ main{
     margin-top: 5%;
     border: 1vh solid $defaultColor;
     border-radius: 3%;
-    #texto{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2vh;
-        margin: 5% 5% 5% 5%;
-    }
     figure{
-       display: flex;   
-       flex-direction: row; 
-       align-items: flex-start;
-       margin: 5% 5% 5% 5%;
-       gap: 5vh;
-        img{
-            height: 44vh;
-            width: 44vh;
-            border: solid 1vh $defaultColor;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-        #marcelo{
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            font-size: medium;
-        }
-        #rau{
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            font-size: medium;
-        }
+        display: flex;
+        flex-wrap: wrap;
+    }
+    img{
+        height: 20rem;
+        width: 20rem;
+        border-radius: 100%;
     }
      }
 }

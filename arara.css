@@ -42,11 +42,14 @@ header h1 {
 
 main {
   margin-top: 2vh;
-  display: grid;
-  grid-template-columns: 4.5% 20% 0.5% 70% 5%;
-  -moz-column-gap: 3vh;
-       column-gap: 3vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: clamp(2vh, 4vw, 5vh);
   margin-bottom: 2vh;
+  padding: 0 5%;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 #animal {
@@ -54,26 +57,36 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  grid-column: 2;
-  height: 100%;
+  flex: 1 1 min(400px, 90%);
+  height: auto;
   width: 100%;
   text-align: center;
   font-family: "Montserrat", sans-serif;
-  font-size: 2.1vh;
+  font-size: clamp(16px, 2.1vh, 20px);
 }
 #animal img {
-  height: 80vh;
+  height: min(80vh, 600px);
   width: auto;
-}
-
-#basicInfo {
-  grid-column: 4;
-  font-family: "Montserrat", sans-serif;
-  font-size: larger;
+  max-width: min(90vw, 500px);
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 #line {
   background-color: #1028b1;
+  width: clamp(1px, 0.3vw, 3px);
+  flex: 0 0 auto;
+  align-self: stretch;
+  min-height: 50vh;
+  margin: 0 clamp(1vh, 2vw, 3vh);
+}
+
+#basicInfo {
+  flex: 2 1 min(600px, 90%);
+  font-family: "Montserrat", sans-serif;
+  font-size: clamp(14px, 1.8vh, 18px);
+  line-height: 1.5;
+  padding: 0 3%;
 }
 
 footer {
